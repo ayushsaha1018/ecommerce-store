@@ -7,6 +7,7 @@ import useCart from "@/hooks/use-cart";
 
 import Summary from "./components/summary";
 import CartItem from "./components/cart-item";
+import Loading from "../loading";
 
 export const revalidate = 0;
 
@@ -15,10 +16,10 @@ const CartPage = () => {
   useEffect(() => {
     setIsMounted(true);
   }, []);
-  
+
   const cart = useCart();
   if (!isMounted) {
-    return null; 
+    return <Loading />;
   }
 
   return (
